@@ -19,7 +19,7 @@ const theme = {
   darkText: '#1A1A2E',
 };
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://brain-tumor-detection-xwqh.onrender.com';
 
 const getApiErrorMessage = (error, fallbackMessage) => {
   if (error.response?.data?.error) {
@@ -27,7 +27,7 @@ const getApiErrorMessage = (error, fallbackMessage) => {
   }
 
   if (error.request) {
-    return 'Cannot reach the backend API. Make sure the Flask server is running on http://localhost:5000.';
+    return 'Cannot reach the backend API. Make sure the Flask server is running on https://brain-tumor-detection-xwqh.onrender.com.';
   }
 
   return fallbackMessage;
