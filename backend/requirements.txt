@@ -1,0 +1,43 @@
+# Web Framework
+Flask==3.0.0
+flask-cors==4.0.0
+flask-jwt-extended==4.6.0
+
+# Database
+psycopg[binary]==3.2.1
+
+# Security
+Werkzeug==3.0.1
+bcrypt==4.1.2
+
+# Environment
+python-dotenv==1.0.0
+
+# Image Processing
+Pillow==10.2.0
+
+# Numerical Computing (Python 3.11+ compatible)
+numpy==1.26.4
+scikit-learn==1.5.2
+matplotlib==3.9.2
+requests==2.32.3
+kaggle==1.6.17
+pydicom==3.0.1
+
+# ✅ TensorFlow (updated for Python 3.11+)
+tensorflow==2.19.0
+
+# PDF Generation
+reportlab==4.0.8
+
+# Email
+sendgrid==6.11.0
+
+# Geolocation
+geopy==2.4.1
+
+# Production Server
+gunicorn==21.2.0
+
+# Testing
+pytest==7.4.4
