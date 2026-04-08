@@ -35,7 +35,7 @@ load_dotenv(Path(__file__).with_name('.env'))
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*/*": {"origins": "*"}})
 
 # Configuration
 app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'your-secret-key-change-in-production')
@@ -49,8 +49,7 @@ app.config['MAX_CONTENT_LENGTH'] = int(
 jwt = JWTManager(app)
 
 DATABASE_URL = os.environ.get(
-    'DATABASE_URL',
-    'postgresql://postgres:password@localhost:5432/neurodetect'
+    'DATABASE_URL',''
 )
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', '').strip()
 

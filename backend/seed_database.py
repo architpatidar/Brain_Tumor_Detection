@@ -10,8 +10,7 @@ from psycopg.types.json import Jsonb
 load_dotenv(Path(__file__).with_name('.env'))
 
 DATABASE_URL = os.environ.get(
-    'DATABASE_URL',
-    'postgresql://postgres:password@localhost:5432/neurodetect'
+    'DATABASE_URL',''
 )
 
 
