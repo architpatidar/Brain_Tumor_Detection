@@ -21,6 +21,18 @@ const theme = {
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
+const getApiErrorMessage = (error, fallbackMessage) => {
+  if (error.response?.data?.error) {
+    return error.response.data.error;
+  }
+
+  if (error.request) {
+    return 'Cannot reach the backend API. Make sure the Flask server is running on http://localhost:5000.';
+  }
+
+  return fallbackMessage;
+};
+
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token');
   return token ? { Authorization: `Bearer ${token}` } : {};
@@ -669,7 +681,7 @@ const BrainTumorDetectionApp = () => {
       setCurrentPage('home');
       setLoginData({ email: '', password: '' });
     } catch (error) {
-      alert(error.response?.data?.error || 'Login failed');
+      alert(getApiErrorMessage(error, 'Login failed'));
     }
   };
 
@@ -686,7 +698,7 @@ const BrainTumorDetectionApp = () => {
       setCurrentPage('home');
       setSignupData({ name: '', email: '', password: '', phone: '' });
     } catch (error) {
-      alert(error.response?.data?.error || 'Signup failed');
+      alert(getApiErrorMessage(error, 'Signup failed'));
     }
   };
 
@@ -698,7 +710,7 @@ const BrainTumorDetectionApp = () => {
       setAuthMode('login');
       setResetEmail('');
     } catch (error) {
-      alert(error.response?.data?.error || 'Password reset failed');
+      alert(getApiErrorMessage(error, 'Password reset failed'));
     }
   };
 
